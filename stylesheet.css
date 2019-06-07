@@ -1,82 +1,100 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
-
 body {
-    font-family: Roboto Mono;
-    margin: 0px;
-    background: #2f343f;
-  }
+  font-family: Roboto Mono;
+  margin: 0px;
+  background: #2f343f;
+  background-image: url("svg/worldmap.svg");
+  background-size: 300%;
+  background-position-x: center;
+  background-position-y: 30%;
+}
 
 p.normal {
-    font-style: normal;
-    color: #fff;
-    font-size: 20px;
+  font-style: normal;
+  color: #fff;
+  font-size: 20px;
 }
 
 h1.undertitle {
-    font-style: normal;
-    color: #fff;
-    font-style: bold;
-    font-size: 20px;
-    text-align: center;
-    margin-top: 0px;
+  font-style: normal;
+  color: #fff;
+  font-style: bold;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 0px;
 }
 
 h1.title {
-    color: #fff;
-    font-size: 56px;
-    text-align: center;
-    margin-top: 10%;
-    margin: 50px;
+  color: #fff;
+  font-size: 56px;
+  text-align: center;
+  margin-top: 10%;
+  margin: 50px;
 }
 
 .container {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .topcell {
-    width: 30%;
-    background-color: #404552;
-    padding: 1em;
-    border-radius: 3px;
-    font-family: "Roboto Mono";
-    color: #fff;
-    text-align: center;
-    box-shadow:  0px 4px 4px rgba(0, 0, 0, 0.25);
+  width: 25%;
+  background-color: #404552;
+  padding: 1em;
+  border-radius: 5px;
+  font-family: "Roboto Mono";
+  color: #fff;
+  text-align: center;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .cell-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 50%;
-    margin: 1em 0em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  margin: 1em 0em;
 }
 
-.cell-set{
-    padding: 1em;
-    background-color: #404552;
-    border-radius: 3px;
-    font-family: "Roboto Mono";
-    font-size: .85rem;
-    width: 25%;
-    height: 10em;
-    margin: 0em .5em;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+.cell-set {
+  padding: 1em;
+  background-color: #404552;
+  border-radius: 5px;
+  font-family: "Roboto Mono";
+  width: 300px;
+  height: 200px;
+  margin: 0em .5em;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.lower-cell-set{
-    padding: 1em;
-    background-color: #404552;
-    border-radius: 3px;
-    font-family: "Roboto Mono";
-    font-size: .85rem;
-    width: 25%;
-    height: 2em;
-    margin: 0em .5em;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+.lower-cell-set {
+  background-color: #404552;
+  border-radius: 5px;
+  font-family: "Roboto Mono";
+  width: 300px;
+  height: 50px;
+  margin: 0em .5em;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-style: normal;
+  color: #fff;
+  font-size: 20px;
+  border: none;
+}
+
+.lower-button-set {
+  border: none;
+  background-color: #404552;
+  border-radius: 5px;
+  font-family: "Roboto Mono";
+  width: 50px;
+  height: 50px;
+  margin: 0em .5em;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-style: normal;
+  color: #fff;
+  font-size: 20px;
 }
