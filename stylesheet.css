@@ -22,20 +22,61 @@ h1.undertitle {
 }
 
 h1.title {
-    font-style: bold;
     color: #fff;
     font-size: 56px;
     text-align: center;
+    margin-top: 10%;
     margin: 50px;
 }
 
-.column1 {   
-    padding: 15px;
-    max-width: 285px;
-    min-height: 185px;
-    margin-left: auto;
-    margin-right: auto;
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.topcell {
+    width: 30%;
     background-color: #404552;
-    border-radius: 5px;
+    padding: 1em;
+    border-radius: 3px;
+    font-family: "Roboto Mono";
+    color: #fff;
+    text-align: center;
     box-shadow:  0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
+}
+
+.cell-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 50%;
+    margin: 1em 0em;
+}
+
+.cell-set{
+    padding: 1em;
+    background-color: #404552;
+    border-radius: 3px;
+    font-family: "Roboto Mono";
+    font-size: .85rem;
+    width: 25%;
+    height: 10em;
+    margin: 0em .5em;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.lower-cell-set{
+    padding: 1em;
+    background-color: #404552;
+    border-radius: 3px;
+    font-family: "Roboto Mono";
+    font-size: .85rem;
+    width: 25%;
+    height: 2em;
+    margin: 0em .5em;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
