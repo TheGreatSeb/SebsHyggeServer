@@ -83,6 +83,14 @@ h1.title {
   color: #fff;
   font-size: 20px;
   border: none;
+  transition: 0.3s;
+  cursor: pointer;
+  text-align: center;
+}
+
+.lower-cell-set:hover {
+  background-color: #545a6b;
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
 }
 
 .lower-button-set {
@@ -97,4 +105,13 @@ h1.title {
   font-style: normal;
   color: #fff;
   font-size: 20px;
+  transition: 0.3s;
+  cursor: pointer;
 }
+
+.lower-button-set:hover {
+  background-color: #545a6b;
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+}
+
+button:focus {outline:0;}
