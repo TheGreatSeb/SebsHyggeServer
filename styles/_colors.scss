@@ -1,0 +1,82 @@
+$background-color:  #2F343F;
+$background-grafic: rgba(255, 255, 255, 0.03);
+$box-layer-one:     #404552;
+$box-layer-two:     #3B3F4B;
+$button-hover:      scale-color($box-layer-one, $lightness: 10%);
+$button-active:      scale-color($box-layer-one, $lightness: 15%);
+$text-primary:      #FFFFFF;
+$dark-red:          #AA0000;
+$red:               #FF5555;
+$gold:              #FFA36F;
+$yellow:            #FFFF55;
+$dark-green:        #00AA00;
+$green:             #7EFF69;
+$aqua:              #55FFFF;
+$dark-aqua:         #00AAAA;
+$dark-blue:         #0000AA;
+$blue:              #5555FF;
+$light-purple:      #FF55FF;
+$dark-purple:       #AA00AA;
+$gray:              #AAAAAA;
+$dark-gray:         #555555;
+$black:             #000000;
+
+.text-dark-red {
+  color: $dark-red;
+}
+
+.text-red {
+  color: $red;
+}
+
+.text-gold {
+  color: $gold;
+}
+
+.text-yellow {
+  color: $yellow;
+}
+
+.text-dark-green {
+  color: $dark-green;
+}
+
+.text-green {
+  color: $green;
+}
+
+.text-aqua {
+  color: $aqua;
+}
+
+.text-dark-aqua {
+  color: $dark-aqua;
+}
+
+.text-dark-blue {
+  color: $dark-blue;
+}
+
+.text-blue {
+  color: $blue;
+}
+
+.text-light-purple {
+  color: $light-purple;
+}
+
+.text-dark-purple {
+  color: $dark-purple;
+}
+
+.text-gray {
+  color: $gray;
+}
+
+.text-dark-gray {
+  color: $dark-gray;
+}
+
+.text-black {
+  color: $black;
+}

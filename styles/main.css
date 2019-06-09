@@ -1,0 +1,256 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono:400,700&display=swap");
+.text-dark-red {
+  color: #AA0000;
+}
+
+.text-red {
+  color: #FF5555;
+}
+
+.text-gold {
+  color: #FFA36F;
+}
+
+.text-yellow {
+  color: #FFFF55;
+}
+
+.text-dark-green {
+  color: #00AA00;
+}
+
+.text-green {
+  color: #7EFF69;
+}
+
+.text-aqua {
+  color: #55FFFF;
+}
+
+.text-dark-aqua {
+  color: #00AAAA;
+}
+
+.text-dark-blue {
+  color: #0000AA;
+}
+
+.text-blue {
+  color: #5555FF;
+}
+
+.text-light-purple {
+  color: #FF55FF;
+}
+
+.text-dark-purple {
+  color: #AA00AA;
+}
+
+.text-gray {
+  color: #AAAAAA;
+}
+
+.text-dark-gray {
+  color: #555555;
+}
+
+.text-black {
+  color: #000000;
+}
+
+.text-dark-red {
+  color: #AA0000;
+}
+
+.text-red {
+  color: #FF5555;
+}
+
+.text-gold {
+  color: #FFA36F;
+}
+
+.text-yellow {
+  color: #FFFF55;
+}
+
+.text-dark-green {
+  color: #00AA00;
+}
+
+.text-green {
+  color: #7EFF69;
+}
+
+.text-aqua {
+  color: #55FFFF;
+}
+
+.text-dark-aqua {
+  color: #00AAAA;
+}
+
+.text-dark-blue {
+  color: #0000AA;
+}
+
+.text-blue {
+  color: #5555FF;
+}
+
+.text-light-purple {
+  color: #FF55FF;
+}
+
+.text-dark-purple {
+  color: #AA00AA;
+}
+
+.text-gray {
+  color: #AAAAAA;
+}
+
+.text-dark-gray {
+  color: #555555;
+}
+
+.text-black {
+  color: #000000;
+}
+
+.cell {
+  background-color: #404552;
+  padding: 12px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 1.25rem;
+}
+
+.cell .cell {
+  background-color: #3B3F4B;
+}
+
+.cell.button, .cell.icon-button {
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.cell.button:hover, .cell.icon-button:hover {
+  background-color: #505666;
+  -webkit-box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+}
+
+.cell.button:active, .cell.icon-button:active {
+  background-color: #585f71;
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.cell.button img, .cell.icon-button img {
+  width: 100%;
+  height: 100%;
+}
+
+.cell h2 {
+  display: block;
+  margin: 0;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.25rem;
+  padding-bottom: 12px;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: "Roboto mono", monospace;
+  color: #FFFFFF;
+  background: #2f343f;
+  background-image: url("../assets/worldmap.svg");
+  background-size: 300%;
+  background-position-x: center;
+  background-position-y: 30%;
+}
+
+p {
+  font-style: normal;
+  font-size: 1.25rem;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+h1 {
+  font-size: 3.5rem;
+  text-align: center;
+  line-height: 150px;
+  margin: 0;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (300px)[3];
+      grid-template-columns: repeat(3, 300px);
+  -ms-grid-rows: 150px 75px fit-content(350px) 75px;
+      grid-template-rows: 150px 75px fit-content(350px) 75px;
+  grid-gap: 24px;
+}
+
+.container h1 {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+.container .ip-cell {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 4;
+  width: 50%;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  text-align: center;
+}
+
+.container .discord-button, .container .chat-button {
+  width: 75px;
+}
+
+.container .discord-button {
+  -ms-grid-column-align: end;
+      justify-self: end;
+}
+
+.container .dynmap-button, .container .ip-cell {
+  line-height: 51px;
+}
+/*# sourceMappingURL=main.css.map */

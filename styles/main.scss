@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,700&display=swap');
+@import 'colors';
+@import 'cell';
+
+$font-family: 'Roboto mono', monospace;
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: $font-family;
+  color: $text-primary;
+  background: #2f343f;
+  background-image: url("../assets/worldmap.svg");
+  background-size: 300%;
+  background-position-x: center;
+  background-position-y: 30%;
+}
+
+p {
+  font-style: normal;
+  font-size: 1.25rem;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: $text-primary;
+}
+
+h1 {
+  font-size: 3.5rem;
+  text-align: center;
+  line-height: 150px;
+  margin: 0;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  grid-template-rows: 150px 75px fit-content(350px) 75px;
+  grid-gap: $box-margin * 2;
+
+  h1 {
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
+
+  .ip-cell {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    width: 50%;
+    justify-self: center;
+    text-align: center;
+  }
+
+  .discord-button, .chat-button {
+    width: 75px;
+  }
+
+  .discord-button {
+    justify-self: end;
+  }
+
+  .dynmap-button, .ip-cell {
+    line-height: 75px - $small-padding * 2;
+  }
+}

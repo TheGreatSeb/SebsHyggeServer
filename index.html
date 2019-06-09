@@ -4,62 +4,52 @@
 <head>
   <meta charset='utf-8'>
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-  <title>Home</title>
+  <title>Sebs Hygge Minecraft Server</title>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <link rel='stylesheet' type='text/css' media='screen' href='stylesheet.css'>
+  <link rel='stylesheet' type='text/css' media='screen' href='styles/normalize.css'>
+  <link rel='stylesheet' type='text/css' media='screen' href='styles/main.css'>
   <script src='main.js'></script>
 </head>
 
 <body>
-  <div class="container">
-    <h1 class="title">
-      Sebs Hygge Minecraft Server
-    </h1>
-    <div class="topcell">
-      <div>
-        Server ip - play.teamferal.com
-      </div>
-    </div>
-    <div class="cell-container">
-      <div class="cell-set">
-        <h1 class="undertitle">
-          Server stats
-        </h1>
-        <p class="normal">
-          Online: Yes
-          Paper version: 66
-          Players online: 4
-          Uptime: 46h, 10m
-          Avg tps: 19.9
-          Lowest tps: 13.64
+  <div class="wrapper">
+    <div class="container">
+      <h1>Sebs Hygge Minecraft Server</h1>
+  
+      <div class="cell cell-short ip-cell">Server ip - play.teamferal.com</div>
+  
+      <div class="cell status-cell">
+        <h2>Server status</h2>
+        <p>
+          Online: Yes <br>
+          Paper version: 66 <br>
+          Players online: 4 <br>
+          Uptime: 46h, 10m <br>
+          Avg tps: 19.9 <br>
+          Lowest tps: 13.64 <br>
         </p>
       </div>
-      <div class="cell-set">
-        <h1 class="undertitle">
-          Online
-        </h1>
-        <p class="normal">
+  
+      <div class="cell online-cell">
+        <h2>Online</h2>
+        <p>
         </p>
       </div>
-      <div class="cell-set">
-        <h1 class="undertitle">
-          Last online
-        </h1>
-        <p class="normal">
+  
+      <div class="cell last-online-cell">
+        <h2>Last online</h2>
+        <p>
         </p>
       </div>
-    </div>
-    <div class="cell-container">
-      <button class="lower-button-set">
-        <img scr="svg/DiscordLogo.svg" alt="No pic found" height="50" width="50">
+      <button class="cell icon-button discord-button">
+        <img src="assets/DiscordLogo.svg" alt="Discord">
       </button>
-      <a href="http://play.teamferal.com:8124" class="lower-cell-set">Open dynmap</a>
-      <button class="lower-button-set">
-        <img scr="svg/ChatIcon.svg" alt="No pic found" height="50" width="50">
+      <a href="http://play.teamferal.com:8124" class="cell button dynmap-button">Open dynmap</a>
+      <button class="cell icon-button chat-button">
+        <img src="assets/ChatIcon.svg" alt="Open chat">
       </button>
     </div>
   </div>
-
 </body>
 
 </html>
