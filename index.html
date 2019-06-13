@@ -6,50 +6,85 @@
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <title>Sebs Hygge Minecraft Server</title>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+  <!-- Load CSS -->
   <link rel='stylesheet' type='text/css' media='screen' href='styles/normalize.css'>
   <link rel='stylesheet' type='text/css' media='screen' href='styles/main.css'>
-  <script src='main.js'></script>
+
+  <!-- Load JavaScript libraries -->
+  <!-- development version, includes helpful console warnings -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- production version, optimized for size and speed -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+  <script src="https://cdn.jsdelivr.net/combine/npm/vue-moment@4.0.0,npm/clipboard@2.0.4"></script>
 </head>
 
 <body>
-  <div class="wrapper">
+  <div id="app">
+    <!-- Home page -->
     <div class="container">
       <h1>Sebs Hygge Minecraft Server</h1>
   
-      <div class="cell cell-short ip-cell">Server ip - play.teamferal.com</div>
+      <div class="cell cell-short ip-cell" :data-clipboard-text="serverIp">Server ip - {{ serverIp }}</div>
   
       <div class="cell status-cell">
         <h2>Server status</h2>
         <p>
-          Online: Yes <br>
-          Paper version: 66 <br>
-          Players online: 4 <br>
-          Uptime: 46h, 10m <br>
-          Avg tps: 19.9 <br>
-          Lowest tps: 13.64 <br>
+          Online: <span :class="status.online ? 'text-green' : 'text-gold'">{{ status.online ? 'yes' : 'no' }}</span> <br>
+          Paper version: {{ status.paperVersion }} <br>
+          Minecraft version: {{ status.minecraftVersion }} <br>
+          Players online: {{ status.players }} <br>
+          Uptime: {{ getUptime() }} <br>
+          TPS:  <span v-for="(tps, index) in status.tps">{{ index != 0 ? ' / ' : '' }}
+                  <span :style="`color: ${rgbToHex(lerpColor(hexToRgb('FF5555'), hexToRgb('7EFF69'), 20/tps))};`">{{ tps.toFixed(2) }}</span>
+                </span>
         </p>
       </div>
   
       <div class="cell online-cell">
         <h2>Online</h2>
         <p>
+          <span v-if="players.length == 0">Nobody's online right now</span>
+          <span v-for="(player, index) in players">{{ player }} <br></span>
         </p>
       </div>
   
       <div class="cell last-online-cell">
         <h2>Last online</h2>
         <p>
+          <span v-for="(player, index) in lastOnline" class="player">
+            <span class="name">{{ player.name }}</span>
+            <span class="time">{{ new Date(player.lastSeen) | moment("from") }}</span>
+          </span>
         </p>
       </div>
+
       <button class="cell icon-button discord-button">
         <img src="assets/DiscordLogo.svg" alt="Discord">
       </button>
-      <a href="http://play.teamferal.com:8124" class="cell button dynmap-button">Open dynmap</a>
+
+      <button class="cell button dynmap-button" @click="page = 'dynmap'" >Open dynmap</button>
+
       <button class="cell icon-button chat-button">
         <img src="assets/ChatIcon.svg" alt="Open chat">
       </button>
     </div>
+
+    <!-- Dynmap module -->
+    <div :class="`page dynmap-page ${page == 'dynmap' ? '' : 'hidden'}`">
+      <h2>Dynmap</h2>
+      <div class="page-close" @click="closePage"><img src="assets/CloseIcon.svg" alt="Close"></div>
+      <div class="content">
+        <iframe class="dynmap-frame" src="http://play.teamferal.com:8124" frameborder="0" width="100%" height="100%"></iframe>
+      </div>
+    </div>
+
+    <!-- Toast message -->
+    <div :class="`toast ${toast.hidden ? 'hidden' : ''}`">{{ toast.message }}</div>
   </div>
+
+  <!-- Load JavaScript -->
+  <script src='scripts/main.js'></script>
 </body>
 
 </html>
