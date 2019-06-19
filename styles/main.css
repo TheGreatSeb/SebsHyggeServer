@@ -265,6 +265,10 @@ h1 {
           justify-content: center;
 }
 
+.offline-message {
+  font-size: 3em;
+}
+
 .container {
   display: -ms-grid;
   display: grid;

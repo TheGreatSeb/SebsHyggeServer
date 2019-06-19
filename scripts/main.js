@@ -15,6 +15,20 @@ const app = new Vue({
     },
     page: 'home'
   },
+  computed: {
+    uptime() {
+      const duration = Date.now() - this.status.startTime;
+      let hours = Math.floor(duration / (1000 * 60 * 60));
+      let minutes = Math.floor((duration % (1000 * 60 * 60)) / (1000 * 60));
+      let seconds = Math.floor((duration % (1000 * 60)) / 1000);
+      return `${hours}h, ${minutes}m, ${seconds}s`;
+    },
+    minecraftTime() {
+      let hours = doubleDigit((Math.floor(this.status.timeOfDay / 1000) + 6) % 24);
+      let minutes = doubleDigit(Math.floor((this.status.timeOfDay % 1000) / 1000 * 60));
+      return `${hours}:${minutes}`;
+    }
+  },
   mounted() {
     this.initCopyServerIp();
 
@@ -57,13 +71,6 @@ const app = new Vue({
           this.status.online = false;
         });
     },
-    getUptime() {
-      const duration = Date.now() - this.status.startTime;
-      let hours = Math.floor(duration / (1000 * 60 * 60));
-      let minutes = Math.floor((duration % (1000 * 60 * 60)) / (1000 * 60));
-      let seconds = Math.floor((duration % (1000 * 60)) / 1000);
-      return `${hours}h, ${minutes}m, ${seconds}s`;
-    },
     hexToRgb(hex) {
       let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
       return result ? [
@@ -102,3 +109,7 @@ const app = new Vue({
     },
   },
 });
+
+function doubleDigit(value) {
+  return value < 10 ? `0${value}` : value.toString();
+}

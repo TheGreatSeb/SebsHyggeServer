@@ -45,6 +45,10 @@ h1 {
   justify-content: center;
 }
 
+.offline-message {
+  font-size: 3em;
+}
+
 .container {
   display: grid;
   grid-template-columns: repeat(3, 400px);

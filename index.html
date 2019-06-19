@@ -22,7 +22,7 @@
 <body>
   <div id="app">
     <!-- Home page -->
-    <div class="container">
+    <div class="container" v-if="status.online">
       <h1>Sebs Hygge Minecraft Server</h1>
   
       <div class="cell cell-short ip-cell" :data-clipboard-text="serverIp">Server ip - {{ serverIp }}</div>
@@ -34,10 +34,14 @@
           Paper version: {{ status.paperVersion }} <br>
           Minecraft version: {{ status.minecraftVersion }} <br>
           Players online: {{ status.players }} <br>
-          Uptime: {{ getUptime() }} <br>
+          Uptime: {{ uptime }} <br>
           TPS:  <span v-for="(tps, index) in status.tps">{{ index != 0 ? ' / ' : '' }}
                   <span :style="`color: ${rgbToHex(lerpColor(hexToRgb('FF5555'), hexToRgb('7EFF69'), 20/tps))};`">{{ tps.toFixed(2) }}</span>
                 </span>
+          Weather: {{ status.weather }} <br>
+          Time: {{ minecraftTime }} ({{ status.totalDays }} days) <br>
+          CPU usage: <span :style="`color: ${rgbToHex(lerpColor(hexToRgb('FF5555'), hexToRgb('7EFF69'), 1 - status.cpuUsage))};`">{{ (status.cpuUsage * 100).toFixed(2) }}%</span> <br>
+          Memory: {{ ((status.memoryMax - status.memoryFree) / 1073741824).toFixed(2) }}G/{{ (status.memoryMax / 1073741824).toFixed(2) }}G
         </p>
       </div>
   
@@ -69,6 +73,7 @@
         <img src="assets/ChatIcon.svg" alt="Open chat">
       </button>
     </div>
+    <div class="offline-message" v-else>The server is currently <span class="text-gold">offline</span>.</div>
 
     <!-- Dynmap module -->
     <div :class="`page dynmap-page ${page == 'dynmap' ? '' : 'hidden'}`">
