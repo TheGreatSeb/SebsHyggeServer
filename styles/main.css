@@ -224,7 +224,7 @@
 }
 
 html, body {
-  min-height: 100%;
+  min-height: 100vh;
 }
 
 body {
@@ -258,7 +258,7 @@ h1 {
 
 #app {
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -288,6 +288,9 @@ h1 {
   -ms-grid-column: 1;
       grid-column-start: 1;
   grid-column-end: 4;
+  -webkit-box-ordinal-group: -2;
+      -ms-flex-order: -3;
+          order: -3;
 }
 
 .container .ip-cell {
@@ -299,6 +302,9 @@ h1 {
       justify-self: center;
   text-align: center;
   cursor: pointer;
+  -webkit-box-ordinal-group: -1;
+      -ms-flex-order: -2;
+          order: -2;
 }
 
 .container .discord-button, .container .chat-button {
@@ -322,6 +328,10 @@ h1 {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.container.status-shown {
+  padding-bottom: 128px;
 }
 
 .toast {
@@ -355,6 +365,69 @@ h1 {
 
 .dynmap-page .content .dynmap-frame {
   border-radius: 5px;
+}
+
+.minecraft-status {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #404552;
+  margin: 0;
+  padding: 0 24px;
+  font-size: 1.25em;
+}
+
+.minecraft-status ul {
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.minecraft-status li {
+  line-height: 52px;
+  white-space: nowrap;
+}
+
+.minecraft-status li .indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+.minecraft-status li .indicator.indicator-green {
+  background-color: #7EFF69;
+}
+
+.minecraft-status li .indicator.indicator-yellow {
+  background-color: #FFFF55;
+}
+
+.minecraft-status li .indicator.indicator-red {
+  background-color: #FF5555;
+}
+
+.minecraft-status h2 {
+  display: none;
+  margin: 0;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.25rem;
+  padding-bottom: 12px;
 }
 
 @media screen and (max-width: 1300px) {
@@ -395,10 +468,32 @@ h1 {
             flex-grow: 1;
     margin: 6px 12px;
   }
+  .container.status-shown {
+    padding-bottom: 0;
+  }
   .page {
     width: 100vw;
     height: 100vh;
     border-radius: 0;
+  }
+  .minecraft-status {
+    position: static;
+    padding: 12px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
+  }
+  .minecraft-status h2 {
+    display: block;
+  }
+  .minecraft-status ul {
+    display: block;
+  }
+  .minecraft-status ul li {
+    line-height: 1.15;
   }
 }
 /*# sourceMappingURL=main.css.map */

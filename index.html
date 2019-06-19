@@ -22,7 +22,7 @@
 <body>
   <div id="app">
     <!-- Home page -->
-    <div class="container" v-if="status.online">
+    <div :class="`container ${minecraftStatusProblem ? 'status-shown' : ''}`" v-if="status.online">
       <h1>Sebs Hygge Minecraft Server</h1>
   
       <div class="cell cell-short ip-cell" :data-clipboard-text="serverIp">Server ip - {{ serverIp }}</div>
@@ -36,12 +36,12 @@
           Players online: {{ status.players }} <br>
           Uptime: {{ uptime }} <br>
           TPS:  <span v-for="(tps, index) in status.tps">{{ index != 0 ? ' / ' : '' }}
-                  <span :style="`color: ${rgbToHex(lerpColor(hexToRgb('FF5555'), hexToRgb('7EFF69'), 20/tps))};`">{{ tps.toFixed(2) }}</span>
+                  <span :style="`color: ${rgbToHex(lerpColor(hexToRgb('FF5555'), hexToRgb('7EFF69'), tps/20))};`">{{ tps.toFixed(2) }}</span>
                 </span> <br>
           Weather: {{ status.weather }} <br>
           Time: {{ minecraftTime }} ({{ status.totalDays }} days) <br>
           CPU usage: <span :style="`color: ${rgbToHex(lerpColor(hexToRgb('FF5555'), hexToRgb('7EFF69'), 1 - status.cpuUsage))};`">{{ (status.cpuUsage * 100).toFixed(2) }}%</span> <br>
-          Memory: {{ ((status.memoryMax - status.memoryFree) / 1073741824).toFixed(2) }}G/{{ (status.memoryMax / 1073741824).toFixed(2) }}G
+          Memory: <span :style="`color: ${rgbToHex(lerpColor(hexToRgb('FF5555'), hexToRgb('7EFF69'), (status.memoryFree / status.memoryMax)))};`">{{ ((status.memoryMax - status.memoryFree) / 1073741824).toFixed(2) }}G</span>/{{ (status.memoryMax / 1073741824).toFixed(2) }}G
         </p>
       </div>
   
@@ -63,15 +63,24 @@
         </p>
       </div>
 
-      <button class="cell icon-button discord-button">
+      <a class="cell icon-button discord-button" href="https://discord.gg/mn2aP2p" target="_blank">
         <img src="assets/DiscordLogo.svg" alt="Discord">
-      </button>
+      </a>
 
       <button class="cell button dynmap-button" @click="page = 'dynmap'" >Open dynmap</button>
 
       <button class="cell icon-button chat-button">
         <img src="assets/ChatIcon.svg" alt="Open chat">
       </button>
+
+      <div class="minecraft-status" v-if="minecraftStatusProblem">
+        <h2>Minecraft status</h2>
+        <p>
+          <ul>
+            <li v-for="s in minecraftStatus"><div :class="`indicator indicator-${s.status}`"></div><span>{{ s.name }}</span></li>
+          </ul>
+        </p>
+      </div>
     </div>
     <div class="offline-message" v-else>The server is currently <span class="text-gold">offline</span>.</div>
 

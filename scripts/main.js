@@ -13,7 +13,34 @@ const app = new Vue({
       hidden: true,
       message: '',
     },
-    page: 'home'
+    page: 'home',
+    minecraftApiOnline: true,
+    minecraftStatus: [
+      {
+        name: 'Mojang accounts website',
+        status: 'green'
+      },
+      {
+        name: 'Authentication service',
+        status: 'green'
+      },
+      {
+        name: 'Multiplayer session service',
+        status: 'green'
+      },
+      {
+        name: 'Minecraft skins',
+        status: 'green'
+      },
+      {
+        name: 'Public API',
+        status: 'green'
+      },
+      {
+        name: 'Minecraft.net',
+        status: 'green'
+      },
+    ]
   },
   computed: {
     uptime() {
@@ -27,6 +54,9 @@ const app = new Vue({
       let hours = doubleDigit((Math.floor(this.status.timeOfDay / 1000) + 6) % 24);
       let minutes = doubleDigit(Math.floor((this.status.timeOfDay % 1000) / 1000 * 60));
       return `${hours}:${minutes}`;
+    },
+    minecraftStatusProblem() {
+      return 0 < this.minecraftStatus.filter(s => s.status !== 'green').length;
     }
   },
   mounted() {
@@ -35,6 +65,8 @@ const app = new Vue({
     this.getStatus();
     this.getPlayers();
     this.getLastOnline();
+
+    this.updateMinecraftStatus();
 
     setInterval(this.getStatus, 1000);
     setInterval(this.getPlayers, 1000);
@@ -69,6 +101,25 @@ const app = new Vue({
           this.lastOnline = json;
         }).catch(err => {
           this.status.online = false;
+        });
+    },
+    updateMinecraftStatus() { // Could this be rewritten? It is not very pretty...
+      fetch('https://status.mojang.com/check')
+        .then(response => {
+          return response.json();
+        }).then(json => {
+          this.minecraftStatus[0].status = json[2]['account.mojang.com'];
+          this.minecraftStatus[1].status = json[3]['auth.mojang.com'] === 'red' || json[5]['authserver.mojang.com'] === 'red' ? 'red' 
+            : json[3]['auth.mojang.com'] === 'yellow' || json[5]['authserver.mojang.com'] === 'yellow' ? 'yellow' 
+            : 'green';
+          his.minecraftStatus[2].status = json[1]['session.minecraft.net'] === 'red' || json[6]['sessionserver.mojang.com'] === 'red' ? 'red'
+            : json[1]['session.minecraft.net'] === 'yellow' || json[6]['sessionserver.mojang.com'] === 'yellow' ? 'yellow'
+              : 'green';
+          this.minecraftStatus[3].status = json[4]['skins.minecraft.net'];
+          this.minecraftStatus[4].status = json[7]['api.mojang.com'];
+          this.minecraftStatus[5].status = json[0]['minecraft.net'];
+        }).catch(err => {
+          this.minecraftApiOnline = false;
         });
     },
     hexToRgb(hex) {
