@@ -139,7 +139,7 @@ h1 {
 
     & > * {
       flex-basis: 100%;
-      margin: $box-margin;
+      margin: $box-margin/2 0;
     }
 
     .discord-button, .chat-button {
@@ -149,6 +149,7 @@ h1 {
     .dynmap-button {
       flex-basis: unset;
       flex-grow: 1;
+      margin: $box-margin/2 $box-margin;
     }
   }
 

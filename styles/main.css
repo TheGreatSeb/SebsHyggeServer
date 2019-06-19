@@ -381,7 +381,7 @@ h1 {
   .container > * {
     -ms-flex-preferred-size: 100%;
         flex-basis: 100%;
-    margin: 12px;
+    margin: 6px 0;
   }
   .container .discord-button, .container .chat-button {
     -ms-flex-preferred-size: 75px;
@@ -393,6 +393,7 @@ h1 {
     -webkit-box-flex: 1;
         -ms-flex-positive: 1;
             flex-grow: 1;
+    margin: 6px 12px;
   }
   .page {
     width: 100vw;
