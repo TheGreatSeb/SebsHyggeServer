@@ -37,7 +37,7 @@
           Uptime: {{ uptime }} <br>
           TPS:  <span v-for="(tps, index) in status.tps">{{ index != 0 ? ' / ' : '' }}
                   <span :style="`color: ${rgbToHex(lerpColor(hexToRgb('FF5555'), hexToRgb('7EFF69'), 20/tps))};`">{{ tps.toFixed(2) }}</span>
-                </span>
+                </span> <br>
           Weather: {{ status.weather }} <br>
           Time: {{ minecraftTime }} ({{ status.totalDays }} days) <br>
           CPU usage: <span :style="`color: ${rgbToHex(lerpColor(hexToRgb('FF5555'), hexToRgb('7EFF69'), 1 - status.cpuUsage))};`">{{ (status.cpuUsage * 100).toFixed(2) }}%</span> <br>

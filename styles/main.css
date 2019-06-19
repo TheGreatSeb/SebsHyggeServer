@@ -170,7 +170,7 @@
 }
 
 .page {
-  position: absolute;
+  position: fixed;
   width: 80vw;
   height: 80vh;
   top: 50%;
@@ -218,8 +218,13 @@
   top: calc(50% + 15px);
 }
 
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 html, body {
-  height: 100%;
+  min-height: 100%;
 }
 
 body {
@@ -350,5 +355,49 @@ h1 {
 
 .dynmap-page .content .dynmap-frame {
   border-radius: 5px;
+}
+
+@media screen and (max-width: 1300px) {
+  #app {
+    display: block;
+    padding: 16px;
+  }
+  h1 {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+  .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    grid-gap: 0;
+  }
+  .container > * {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+    margin: 12px;
+  }
+  .container .discord-button, .container .chat-button {
+    -ms-flex-preferred-size: 75px;
+        flex-basis: 75px;
+  }
+  .container .dynmap-button {
+    -ms-flex-preferred-size: unset;
+        flex-basis: unset;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+  }
+  .page {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+  }
 }
 /*# sourceMappingURL=main.css.map */
