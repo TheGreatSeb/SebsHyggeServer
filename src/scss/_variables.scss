@@ -1,3 +1,19 @@
+// General
+$font-family: 'Roboto mono', monospace;
+$mobile-break: 1300px;
+
+// Cell variables
+$small-padding: 12px;
+$large-padding: 16px;
+$small-bradius: 5px;
+$large-bradius: 15px;
+$small-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+$hover-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+$active-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+$page-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+$box-margin: 12px;
+
+// Colors
 $background-color:  #2F343F;
 $background-grafic: rgba(255, 255, 255, 0.03);
 $box-layer-one:     #404552;
@@ -20,63 +36,3 @@ $dark-purple:       #AA00AA;
 $gray:              #AAAAAA;
 $dark-gray:         #555555;
 $black:             #000000;
-
-.text-dark-red {
-  color: $dark-red;
-}
-
-.text-red {
-  color: $red;
-}
-
-.text-gold {
-  color: $gold;
-}
-
-.text-yellow {
-  color: $yellow;
-}
-
-.text-dark-green {
-  color: $dark-green;
-}
-
-.text-green {
-  color: $green;
-}
-
-.text-aqua {
-  color: $aqua;
-}
-
-.text-dark-aqua {
-  color: $dark-aqua;
-}
-
-.text-dark-blue {
-  color: $dark-blue;
-}
-
-.text-blue {
-  color: $blue;
-}
-
-.text-light-purple {
-  color: $light-purple;
-}
-
-.text-dark-purple {
-  color: $dark-purple;
-}
-
-.text-gray {
-  color: $gray;
-}
-
-.text-dark-gray {
-  color: $dark-gray;
-}
-
-.text-black {
-  color: $black;
-}
