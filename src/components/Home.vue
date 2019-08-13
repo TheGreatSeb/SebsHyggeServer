@@ -55,7 +55,7 @@ export default {
 .home {
   display: grid;
   grid-template-columns: repeat(3, 400px);
-  grid-template-rows: 150px 75px fit-content(350px) 75px;
+  grid-template-rows: 150px 75px fit-content(450px) 75px;
   grid-gap: $box-margin * 2;
 
   h1 {
@@ -76,7 +76,7 @@ export default {
     & > * {
       width: 75px;
       height: 75px;
-      margin: $box-margin;
+      margin: 0 $box-margin;
 
       .material-design-icon, .material-design-icon__svg {
         height: 100%;

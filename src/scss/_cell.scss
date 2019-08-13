@@ -4,6 +4,7 @@
   border-radius: $small-bradius;
   box-shadow: $small-shadow;
   font-size: 1.25rem;
+  overflow: auto;
 
   // When a cell is in a another cell
   .cell {
