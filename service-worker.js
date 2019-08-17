@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.eec3ede463a7eeb2e92667e1fabbcfb1.js"
+  "/precache-manifest.fc0ba59f018eb78117d3e84377f84757.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "minecraft-vue-site"});
