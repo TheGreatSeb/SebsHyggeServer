@@ -19,6 +19,7 @@
     outline: none;
     transition: all 0.3s;
     color: $text-primary;
+    overflow: hidden;
 
     &:hover {
       background-color: $button-hover;
